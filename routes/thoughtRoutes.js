@@ -11,9 +11,9 @@ const auth = require("../../middleware/auth");
 router.get("/", getAllThoughts);
 
 // Protected routes
-router.post("/", auth, createThought); // Needs auth to get user ID
+router.post("/", auth, createThought);
 
 // Some routes may need auth depending on your requirements
-router.route("/:id").get(getThoughtById).delete(auth, deleteThought); // May need auth to verify the user owns the thought
+router.route("/:id").get(getThoughtById).delete(auth, deleteThought);
 
 module.exports = router;
