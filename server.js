@@ -1,23 +1,11 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const apiRoutes = require("./routes/api");
-
 const app = express();
-const PORT = process.env.PORT || 3001;
+const routes = require("./routes/api");
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use("/api", apiRoutes);
+app.use("/api", routes); // Use the main router which handles the /users and /thoughts routes
 
-mongoose.connect("mongodb://127.0.0.1:27017/socialDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-mongoose.connection.once("open", () => {
-  console.log("Connected to MongoDB");
-});
-
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`API server running on port ${PORT}!`);
+  console.log(`Server running on port ${PORT}`);
 });
