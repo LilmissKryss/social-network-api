@@ -4,8 +4,8 @@ const {
   loginUser,
   getUserProfile,
   updateUserProfile,
-} = require("../../controllers/userController");
-const auth = require("../../middleware/auth");
+} = require("../controllers/userController");
+const auth = require("../middleware/auth");
 
 // Public routes
 router.route("/register").post(registerUser);
