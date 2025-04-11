@@ -1,13 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/socialDB",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000,
-    socketTimeoutMS: 45000,
-  }
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/socialDB"
 )
 .then(() => {
   console.log('Successfully connected to MongoDB.');
