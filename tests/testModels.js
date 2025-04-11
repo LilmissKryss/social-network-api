@@ -7,7 +7,7 @@ const Thought = require(path.resolve(__dirname, "../models/thought.js"));
 const User = require(path.join(__dirname, "../models/user.js"));
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/socialDB");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/socialDB");
 
 function setUp() {
   // set hardcoded mock data for testing
